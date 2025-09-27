@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petroflexi Energies Limited Receipt</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <form id="receipt-form">
+        <h2>Enter Receipt Details</h2>
+        <label>
+            Customer Name (Optional):
+            <input type="text" id="input-name">
+        </label>
+        <label>
+            Phone Number (Optional):
+            <input type="text" id="input-phone">
+        </label>
+        <label>
+            LPG Unit Price (₦):
+            <input type="number" id="input-lpg-unit-price" required>
+        </label>
+        <label>
+            Total Amount Paid (₦):
+            <input type="number" id="input-total-amount" required>
+        </label>
+        <label>
+            LPG Quantity (auto-calculated):
+            <input type="text" id="input-lpg-qty" readonly>
+        </label>
+        <label>
+            LPG Unit (Kg/Litre/Cylinder):
+            <input type="text" id="input-lpg-unit" value="Kg">
+        </label>
+        <label>
+            Loyalty Voucher (₦ or Code):
+            <input type="text" id="input-voucher" value="">
+        </label>
+        <button type="submit">Show Receipt</button>
+    </form>
+
+    <div class="receipt-wrapper" id="receipt-wrapper" style="display:none;">
+        <!-- Customer Copy -->
+        <div class="receipt" id="receipt-customer">
+            <header>
+                <img src="assets/logo.png" alt="Petroflexi Energies Limited Logo" style="height:60px;display:block;margin:0 auto 10px;">
+                <h1>Petroflexi Energies Limited <small>(Customer Copy)</small></h1>
+                <p>Date: <span id="receipt-date-customer"></span></p>
+            </header>
+            <section class="customer-details">
+                <h2>Customer Details</h2>
+                <p>Name: <span id="customer-name-customer"></span></p>
+                <p>Phone: <span id="customer-phone-customer"></span></p>
+            </section>
+            <section class="item-details">
+                <h2>Items</h2>
+                <table style="width:100%;border-collapse:collapse;">
+                    <thead>
+                        <tr>
+                            <th>Item Description</th>
+                            <th>Quantity</th>
+                            <th>Unit Price (₦)</th>
+                            <th>Total (₦)</th>
+                        </tr>
+                        <tr style="background:#faf3e3;">
+                            <td></td>
+                            <td>
+                                <span id="lpg-unit-customer" style="font-size:0.95em;color:#d4af37;">Kg</span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LPG (Cooking Gas)</td>
+                            <td><span id="lpg-qty-customer"></span></td>
+                            <td><span id="lpg-unit-price-customer"></span></td>
+                            <td><span id="lpg-total-customer"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="pricing">
+                <h2>Summary</h2>
+                <p>LPG Quantity: <span id="lpg-qty-summary-customer"></span></p>
+                <p>Subtotal: <span id="subtotal-customer"></span></p>
+                <p>Discount/Promo: <span id="discount-customer"></span></p>
+                <p>Loyalty Voucher: <span id="voucher-customer"></span></p>
+                <p><strong>Grand Total: <span id="grand-total-customer"></span></strong></p>
+            </section>
+            <footer>
+                <p>Thank you for buying from Petroflexi Energies Limited.</p>
+                <p>Kindly use the voucher code on this receipt to earn points. Please keep this receipt for future reference.</p>
+                <p>No refund after gas has been dispensed.</p>
+            </footer>
+        </div>
+        <hr>
+        <!-- Official Copy -->
+        <div class="receipt" id="receipt-official">
+            <header>
+                <img src="assets/logo.png" alt="Petroflexi Energies Limited Logo" style="height:60px;display:block;margin:0 auto 10px;">
+                <h1>Petroflexi Energies Limited <small>(Official Copy)</small></h1>
+                <p>Date: <span id="receipt-date-official"></span></p>
+            </header>
+            <section class="customer-details">
+                <h2>Customer Details</h2>
+                <p>Name: <span id="customer-name-official"></span></p>
+                <p>Phone: <span id="customer-phone-official"></span></p>
+            </section>
+            <section class="item-details">
+                <h2>Items</h2>
+                <table style="width:100%;border-collapse:collapse;">
+                    <thead>
+                        <tr>
+                            <th>Item Description</th>
+                            <th>Quantity</th>
+                            <th>Unit Price (₦)</th>
+                            <th>Total (₦)</th>
+                        </tr>
+                        <tr style="background:#faf3e3;">
+                            <td></td>
+                            <td>
+                                <span id="lpg-unit-official" style="font-size:0.95em;color:#d4af37;">Kg</span>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LPG (Cooking Gas)</td>
+                            <td><span id="lpg-qty-official"></span></td>
+                            <td><span id="lpg-unit-price-official"></span></td>
+                            <td><span id="lpg-total-official"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="pricing">
+                <h2>Summary</h2>
+                <p>LPG Quantity: <span id="lpg-qty-summary-official"></span></p>
+                <p>Subtotal: <span id="subtotal-official"></span></p>
+                <p>Discount/Promo: <span id="discount-official"></span></p>
+                <p>Loyalty Voucher: <span id="voucher-official"></span></p>
+                <p><strong>Grand Total: <span id="grand-total-official"></span></strong></p>
+            </section>
+            <footer>
+                <p>Thank you for buying from Petroflexi Energies Limited.</p>
+                <p>Kindly use the voucher code on this receipt to earn points. Please keep this receipt for future reference.</p>
+                <p>No refund after gas has been dispensed.</p>
+            </footer>
+        </div>
+        <div style="text-align:center;margin:30px 0;">
+            <button id="print-button">Print Receipt</button>
+            <button id="back-button" style="display:none;">Back</button>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+/* Luxury font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+
+body {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+form#receipt-form {
+    background: rgba(34, 34, 34, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    border: 1px solid #d4af37;
+}
+
+form#receipt-form h2 {
+    font-family: 'Playfair Display', serif;
+    color: #d4af37;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+form#receipt-form label {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+}
+
+form#receipt-form input[type="text"],
+form#receipt-form input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+    background: #2c2c2c;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+form#receipt-form input:focus {
+    border-color: #ffd700;
+    outline: none;
+}
+
+form#receipt-form button {
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(90deg, #d4af37 0%, #ffd700 100%);
+    color: #232526;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 18px;
+    box-shadow: 0 2px 8px rgba(212,175,55,0.15);
+    transition: background 0.3s;
+}
+
+form#receipt-form button:hover {
+    background: linear-gradient(90deg, #ffd700 0%, #d4af37 100%);
+}
+
+.receipt {
+    background: #232526;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(212,175,55,0.15);
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 32px 28px;
+    border: 2px solid #d4af37;
+    color: #fff;
+}
+
+.receipt header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #d4af37;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.receipt header img {
+    display: block;
+    margin: 0 auto 10px;
+    height: 60px;
+}
+
+.receipt header p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #ffd700;
+}
+
+.receipt section {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #444;
+}
+
+.receipt section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #ffd700;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.receipt p {
+    font-size: 1.1rem;
+    margin: 6px 0;
+}
+
+.receipt span {
+    color: #d4af37;
+    font-weight: 500;
+}
+
+.receipt footer {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.receipt footer button {
+    padding: 12px 32px;
+    background: linear-gradient(90deg, #d4af37 0%, #ffd700 100%);
+    color: #232526;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(212,175,55,0.15);
+    transition: background 0.3s;
+}
+
+.receipt footer button:hover {
+    background: linear-gradient(90deg, #ffd700 0%, #d4af37 100%);
+}
+
+/* Style for Print and Back buttons outside receipts */
+#print-button,
+#back-button {
+    padding: 12px 32px;
+    background: linear-gradient(90deg, #d4af37 0%, #ffd700 100%);
+    color: #232526;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px 8px;
+    box-shadow: 0 2px 8px rgba(212,175,55,0.15);
+    transition: background 0.3s;
+    display: inline-block;
+}
+
+#print-button:hover,
+#back-button:hover {
+    background: linear-gradient(90deg, #ffd700 0%, #d4af37 100%);
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: #fff;
+        color: #232526;
+    }
+    body * {
+        visibility: hidden !important;
+    }
+    .receipt, .receipt * {
+        visibility: visible !important;
+    }
+    .receipt {
+        box-shadow: none;
+        border: none;
+        background: #fff;
+        color: #232526;
+        page-break-after: always;
+        position: relative;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+    .receipt:last-of-type {
+        page-break-after: auto;
+    }
+    hr, [style*="text-align:center"], .receipt footer button,
+    #print-button,
+    #back-button,
+    form#receipt-form {
+        display: none !important;
+    }
+}
